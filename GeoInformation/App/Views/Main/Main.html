@@ -1,0 +1,27 @@
+﻿<div ng-controller="Main">
+    <div id="container" ng-if="vm.pictures">
+        <div id="picture">
+            <img id="mainImage" src="{{vm.selected.Download_url}}" alt="picture not found" />
+            <div class="overlay" id="author">
+                <div class="text">
+                    {{vm.selected.Author}}
+                </div>
+            </div>
+        </div>
+        <div id="navigator">
+            <div class="item" ng-click="vm.Select(false)">
+                <i class="fas fa-backward fa-4x"></i>
+                <h2>Previous</h2>
+            </div>
+            <div id="pictureItems" ng-repeat="picture in vm.pictures">
+                <div id="pictureItem" ng-class="{selected: picture.Id == vm.selected.Id }">
+                    <img ng-src="{{vm.prefix}}/{{picture.Id}}/170/170" alt="{{picture.Id}}"/>
+                </div>
+            </div>
+            <div class="item" ng-click="vm.Select(true)">
+                <i class="fas fa-forward fa-4x"></i>
+                <h2>Next</h2>
+            </div>
+        </div>
+    </div>
+</div>
